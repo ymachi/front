@@ -30,7 +30,7 @@ const Home = () => {
       <main>
         <div className={styles.articleContainer}>
           <article className={styles.introArticles}>
-            <h1 className={styles.titleArticles}>Derniers Articles</h1>
+            <h1 className={styles.titleArticles}>Derniers Posts</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
             </p>
@@ -47,7 +47,7 @@ const Home = () => {
                   <figure>
                     <img src={article.imageUrl} className={styles.imgResponsive} alt={article.title} />
                     <figcaption>{article.content}</figcaption>
-                    <figcaption>Par <strong>{article.creator.username}</strong></figcaption>
+                    <p>Par <strong>{article.creator.username}</strong></p>
                   </figure>
                   {/* <ul>
                     <li>{article.creator.username}</li>

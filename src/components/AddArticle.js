@@ -5,12 +5,14 @@ import toast from 'react-hot-toast';
 import { token } from "../../context/token";
 import { useAuth } from "../../context/AuthContext";  // Importation de votre contexte d'authentification
 import styles from '../styles/AddArticle.module.css';
+import { useRouter } from 'next/router';
 
 const AddArticle = () => {
+  const {push} = useRouter();
   const { user } = useAuth();  // récupère l'utilisateur connecté
   const [inputs, setInputs] = useState({
     title: "",
-    imageUrl: "",  // Au lieu de null, on initialise en tant que chaîne vide
+    imageUrl: "",  
     content: "",
     creator: user ? user._id : "", // met l'ID de l'utilisateur connecté
   });
@@ -59,7 +61,11 @@ const AddArticle = () => {
       const res = await axios.post("http://localhost:3002/api/articles/new", {title, imageUrl, content, creator}, { headers: token() });
 
       setMessage(res.data.message);
-      toast.success(res.data.message);
+      toast.success('Posts bien ajouté ! Vous allez être redirigé');
+
+      setTimeout(() =>{
+        push("/articles")
+      }, 2000)
     } catch (e) {
       toast.error("Erreur lors de la création de l'article.");
       console.log(e);
@@ -71,7 +77,7 @@ const AddArticle = () => {
       <main className={styles.content}>
         <div className={styles.container}>
           <section className="intro">
-            <h1>Ajouter un article</h1>
+            <h1>Ajouter un post</h1>
           </section>
           <form className={styles.AddArticle} encType="multipart/form-data" onSubmit={handleSubmit} method="post">
             <div className={styles.parentparts}>

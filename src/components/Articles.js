@@ -50,7 +50,7 @@ const Articles = () => {
       <main>
         <div className={styles.articleContainer}>
           <article className={styles.introArticles}>
-            <h1 className={styles.titleArticles}>Articles</h1>
+            <h1 className={styles.titleArticles}>Posts</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
             </p>
@@ -61,7 +61,7 @@ const Articles = () => {
 
           {user && (
             
-              <Link className={styles.editButton} href='/addarticle'>Ajouter un article</Link>
+              <Link className={styles.editButton} href='/addarticle'>Ajouter un post</Link>
            
           )}
 
@@ -73,7 +73,7 @@ const Articles = () => {
                   <figure>
                     <img src={article.imageUrl} className="img-responsive" alt={article.title} />
                     <figcaption>{article.content}</figcaption>
-                    <figcaption> <strong>{article.creator.username}</strong></figcaption>
+                    <p> Par <strong>{article.creator.username}</strong></p>
                   </figure>
                   {/* <ul>
                     <li>{article.creator.username}</li>

@@ -6,65 +6,30 @@ import { useRouter } from 'next/router';
 import styles from '../styles/AddArticle.module.css';
 
 const EditArticle = () => {
-  const router = useRouter();
-  const { id } = router.query; // Utilisez router.query directement
 
-  const [inputs, setInputs] = useState({
-    title: '',
-    content: '',
-    imageUrl: '' 
-  });
+    const {id} = useParams();
+    const {push} = useRouter();
 
-  useEffect(() => {
-    // Vérifier si id est défini et est une chaîne non vide
-    if (id && typeof id === 'string') {
+    const [inputs, setInputs] = useState({
+      content : "",
+      title: "",
+      imageUrl: ""
+    });
+
+    const [message, setMessage] = useState("");
+     
+    useEffect(() => {
       const fetchOneArticle = async () => {
-        try {
-          const res = await axios.get(`http://localhost:3002/api/articles/${id}`, {
-            headers: token() // Ajoutez les headers d'authentification
-          });
-          setInputs(res.data);
-        } catch (error) {
-          console.error(error);
-          toast.error('Erreur lors de la récupération de l\'article');
-          router.push('/articles'); // Rediriger en cas d'erreur
-        }
+         try {
+            const res = await axios.get(`http://localhost:3002/api/articles/${id}`);
+            setInputs(res.data);
+         } catch (e) {
+            toast.error("Erreur lors de la récupération de l'article.");
+         }
       };
-      fetchOneArticle();
-    }
-  }, [id, router]);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setInputs(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const { title, content, imageUrl } = inputs;
-
-    // Validation des champs
-    if (title.trim() === "" || content.trim() === "" || imageUrl.trim() === "") {
-      return toast.error("Veuillez remplir tous les champs");
-    }
-
-    try {
-      const res = await axios.put(
-        `http://localhost:3002/api/articles/edit/${id}`, 
-        inputs, // Envoyez directement l'objet inputs
-        { headers: token() } // Assurez-vous d'ajouter les headers
-      );
-
-      toast.success(res.data.message);
-      router.push('/articles');
-    } catch (error) {
-      console.error(error);
-      toast.error('Erreur lors de la mise à jour de l\'article');
-    }
-  };
+      fetchOneBox();
+   }, [id]);
 
   return (
     <main className={styles.content}>
@@ -97,7 +62,7 @@ const EditArticle = () => {
                 onChange={handleChange}
               />
               <label htmlFor="content">Contenu</label>
-              <textarea
+              <input
                 id="content"
                 name="content"
                 placeholder="Contenu de l'article"
