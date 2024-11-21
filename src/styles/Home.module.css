@@ -7,13 +7,30 @@
 	margin: 2rem;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
+	justify-content: space-around;  
+	gap: 1rem;  
+  }
+  
+  
+  .cardArticls {
+	background-color: #fff;
+	border-radius: 6px;
+	padding: 1rem;
+	width: calc(33.33% - 1rem);  
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease-in-out;
+	margin-bottom: 1rem; 
+  }
+  
+  
+  .cardArticls:hover {
+	transform: translateY(-5px);  
   }
   
   /************************** BOUTONS ACTIONS ******************************/
   .cardActions {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	margin-top: 1rem;
   }
   
@@ -28,14 +45,16 @@
 	font-size: 1rem;
 	border-radius: 5px;
 	transition: background-color 0.3s ease;
+	text-decoration: none;
   }
   
   .editButton:hover {
-	background-color: #facfd5;
+	background-color: #2c0a11;
+	color: white;
   }
   
   .deleteButton {
-	background-color: #f44336;
+	background-color: #2F1E0E;
 	color: white;
   }
   
@@ -48,6 +67,8 @@
 	padding: 2rem;
 	text-align: center;
 	color: #2F1E0E;
+	text-transform: uppercase;
+	border-bottom: 2px solid #2C030B;
   }
   
   .introArticles p {
@@ -55,4 +76,11 @@
 	padding: 1.6rem;
 	color: #2C030B;
   }
-  
+
+
+
+  @media (max-width: 820px) {
+	.cardArticls {
+	  width: 100%; 
+	}
+  }

@@ -2,8 +2,10 @@ import "../styles/globals.css";
 import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import toast, { Toaster } from "react-hot-toast";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
+import {AuthProvider} from "../../context/AuthContext";
 
 
 const store = configureStore({
@@ -13,13 +15,15 @@ const store = configureStore({
 const App = ({ Component, pageProps }) => {
   return (
     <Provider store={store}>
+      <AuthProvider>
       <Head>
-        <title>Next.js App</title>
+        <title>Blog 2.0</title>
       </Head>
       <Header />
       <Component {...pageProps} />
-
+    <Toaster/>
       <Footer/>
+      </AuthProvider>
     </Provider>
   );
 }

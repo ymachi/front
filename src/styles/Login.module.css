@@ -1,111 +1,201 @@
-.loginContainer{
-    padding: 2rem;
-    margin: auto;
- }
- /****************  TITRE *********************/
- .titleLogin{
-    padding-top: 2rem;
-    text-align: center;
-     color: #2F1E0E;
- }
- 
- 
- /***********************************************************************/
- 
- 
- 
- /******************************************************************/
- /********************** FORMULAIRE  ******************************/
- 
- .login{
-    text-align: center;
-    background-color: #dddd;
-    border-radius: 7px;
-    padding: 2rem;
-    margin: 2rem;
-    margin-bottom: 2rem;
-   
- }
- 
- 
- 
- .login input{
-    width: 100%;
-    border: 1px solid #dddd;
-     border-radius: 5px;
-     padding: 2rem;
-     margin-bottom: 2rem;
- }
- 
- .login input[type="submit"]{
-   transition: all 1s;
-    width: 50%;
-     margin: 3rem auto 0 auto;
-     background-color: #2c0a11;
-     color: white;
-     text-transform: uppercase;
-     font-weight: bold;
-     font-size: 1.6rem;
-     letter-spacing: .3rem;
-     padding: 1rem 3rem;
- }
- 
- .login input[type="submit"]:hover{
-    background-color: white;
-    color: #2c0a11;
-    border: 2px solid #2c0a11;
- }
- 
- 
- /****************************************************************/
- 
- /***********************************************************************/
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- /*************************** MÉDIAS QUERIES******************************/
- 
- /************* TABLETTE  *************/
- @media screen and (min-width: 768px) and (max-width: 1200px) {
-    
-   
-  /*BOUTON */
-    
-    .login input[type="submit"]{
-     width: 100%;
-  }
-    
- 
- 
-   
- }
- 
- /************* DESKTOP *************/
- @media screen and (min-width: 1200px){
-    
-      .login-container{
-       padding: 5rem;
+/****************** CONTAINER ******************/
+.loginContainer {
+   margin: 2rem auto;
+   padding: 1rem;
+   max-width: 800px; 
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+   background-color: #ffffff;
+   border-radius: 10px;
+}
+
+/**************** TITRE *********************/
+.titleLogin {
+   padding: 2rem 0;
+   text-align: center;
+   color: #2F1E0E;
+   font-size: 2rem; 
+   font-weight: bold;
+   text-transform: uppercase;
+   border-bottom: 2px solid #2F1E0E; 
+}
+
+/*****************************************************************/
+
+/********************** FORMULAIRE ******************************/
+.login {
+   text-align: center;
+   background-color: #dddd;
+   border-radius: 7px;
+   padding: 2rem;
+   margin: 2rem auto;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+   max-width: 600px;
+}
+
+.login input {
+   width: 100%;
+   border: 1px solid #cccccc; 
+   border-radius: 5px;
+   padding: 1rem;
+   margin-bottom: 1.5rem; 
+   font-size: 1rem;
+   box-sizing: border-box; 
+}
+
+.login input[type="submit"] {
+   transition: all 0.3s ease-in-out; 
+   width: 80%; 
+   margin: 2rem auto 0;
+   background-color: #2c0a11;
+   color: white;
+   text-transform: uppercase;
+   font-weight: bold;
+   font-size: 1.4rem;
+   letter-spacing: 0.2rem; 
+   padding: 0.8rem 1.5rem;
+   cursor: pointer;
+   border: none; 
+   border-radius: 5px;
+}
+
+.login input[type="submit"]:hover {
+   background-color: white;
+   color: #2c0a11;
+   border: 2px solid #2c0a11;
+}
+
+/****************************************************************/
+
+/*************************** MÉDIAS QUERIES ******************************/
+
+/************* TABLETTE *************/
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+   .loginContainer {
+       padding: 3rem;
+   }
+
+   .login {
+       padding: 2.5rem;
+       margin: 2rem auto;
+   }
+
+   .titleLogin {
+       font-size: 2.2rem;
+   }
+}
+
+/************* DESKTOP *************/
+@media screen and (min-width: 1200px) {
+   .loginContainer {
+       padding: 4rem;
+   }
+
+   .login {
+       padding: 3rem;
        margin: auto;
-      }
-      
-     /***************** FORMULAIRE ***************/
-    .login{
+   }
+
+   .login input[type="submit"] {
+       width: 50%; /* Ajustement pour un aspect équilibré */
+   }
+}
+/****************** CONTAINER ******************/
+.loginContainer {
+   margin: 2rem auto;
+   padding: 1rem;
+   max-width: 800px; 
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+   background-color: #ffffff;
+   border-radius: 10px;
+}
+
+/**************** TITRE *********************/
+.titleLogin {
+   padding: 2rem 0;
+   text-align: center;
+   color: #2F1E0E;
+   font-size: 2rem; 
+   font-weight: bold;
+   border-bottom: 2px solid #2F1E0E; 
+}
+
+/*****************************************************************/
+
+/********************** FORMULAIRE ******************************/
+.login {
+   text-align: center;
+   background-color: #dddd;
+   border-radius: 7px;
+   padding: 2rem;
+   margin: 2rem auto;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+   max-width: 600px; 
+}
+
+.login input {
+   width: 100%;
+   border: 1px solid #cccccc; 
+   border-radius: 5px;
+   padding: 1rem;
+   margin-bottom: 1.5rem; 
+   font-size: 1rem;
+   box-sizing: border-box; 
+}
+
+.login input[type="submit"] {
+   transition: all 0.3s ease-in-out; 
+   width: 80%; 
+   margin: 2rem auto 0;
+   background-color: #2c0a11;
+   color: white;
+   text-transform: uppercase;
+   font-weight: bold;
+   font-size: 1.4rem;
+   letter-spacing: 0.2rem; 
+   padding: 0.8rem 1.5rem;
+   cursor: pointer;
+   border: none; 
+   border-radius: 5px;
+}
+
+.login input[type="submit"]:hover {
+   background-color: white;
+   color: #2c0a11;
+   border: 2px solid #2c0a11;
+}
+
+/****************************************************************/
+
+/*************************** MÉDIAS QUERIES ******************************/
+
+/************* TABLETTE *************/
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+   .loginContainer {
+       padding: 3rem;
+   }
+
+   .login {
+       padding: 2.5rem;
+       margin: 2rem auto;
+   }
+
+   .titleLogin {
+       font-size: 2.2rem;
+   }
+}
+
+/************* DESKTOP *************/
+@media screen and (min-width: 1200px) {
+   .loginContainer {
+       padding: 4rem;
+   }
+
+   .login {
+       padding: 3rem;
        margin: auto;
-    }
-  
- 
-     /*BOUTON */
-  
-    .login input[type="submit"]{
-     width: 50%;
-  }
- }
+   }
+
+   .login input[type="submit"] {
+       width: 50%; 
+   }
+}

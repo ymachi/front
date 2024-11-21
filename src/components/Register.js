@@ -1,7 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { useState } from 'react'
+import axios from 'axios';
 import { useRouter } from 'next/router';
+import toast, { Toaster } from "react-hot-toast";
 import styles from "../styles/Register.module.css"
 
 
@@ -9,11 +11,8 @@ const Register = () => {
 
 
     const [formInput, setFormInput] = useState({
-        lastname: "",
-        firstname: "",
+        username: "",
         email: "",
-        tel: "",
-        address: "",
         password: ""
       });
     
@@ -25,7 +24,7 @@ const Register = () => {
       })
     
       const [isCompleted, setIsCompleted] = useState(true);
-      const navigate = useRouter();
+      const {push} = useRouter();
       
     
       const handleChange = (e) => {
@@ -61,26 +60,25 @@ const Register = () => {
          
         try {
           
-          const {lastname, firstname, email, password, tel, address} = formInput
+          const {username, email, password} = formInput
           // sécurité 
-            if(lastname.trim() === ""
-            || firstname.trim() === ""
+            if(username.trim() === ""
             || email.trim() === "" 
-            || password.trim() === ""
-            || tel.trim() === ""
-            || address.trim() === ""){
+            || password.trim() === ""){
                return toast.warning("Veuillez remplir tous les champs.")
             }
-          // const res = await axios.post("/api/users/register", formInput)
-         //  toast.success(res.data.message)
-          
-      
-          navigate("/se-connecter");
+          const res = await axios.post("http://localhost:3002/api/users/register", formInput)
+          toast.success(res.data.message)
+          toast.success("Vous allez être redirigé vers la page de connexion.");
+          setTimeout(() => {
+            push("/login");
+        }, 2000);
     
         }
         catch (e) {
           // pour afficher le message d'erreur venant du back
-          toast.error(e.response.data.message)
+          toast.error(e.response?.data?.message || 'Une erreur est survenue.');
+          console.log(e.response ? e.response.data : e);
         }
       }
     
