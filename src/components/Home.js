@@ -31,12 +31,12 @@ const Home = () => {
         <div className={styles.articleContainer}>
           <article className={styles.introArticles}>
             <h1 className={styles.titleArticles}>Derniers Posts</h1>
-            <p>
+            {/* <p>
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
             </p>
             <p>
               Nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.
-            </p>
+            </p> */}
           </article>
 
           <section className={styles.cardsArticles}>
@@ -48,6 +48,7 @@ const Home = () => {
                     <img src={article.imageUrl} className={styles.imgResponsive} alt={article.title} />
                     <figcaption>{article.content}</figcaption>
                     <p>Par <strong>{article.creator.username}</strong></p>
+                    
                   </figure>
                   {/* <ul>
                     <li>{article.creator.username}</li>

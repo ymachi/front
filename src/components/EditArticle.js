@@ -20,7 +20,7 @@ const EditArticle = () => {
 
         const fetchOneArticle = async () => {
             try {
-                const res = await axios.get(`http://localhost:3002/api/articles/${id}`);
+                const res = await axios.get(`http://localhost:3002/api/articles/${id}`, { headers: token() });
                 setInputs(res.data);
             } catch (e) {
                 toast.error("Erreur lors de la récupération de l'article.");

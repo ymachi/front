@@ -41,7 +41,7 @@ const Header = () => {
             {user ? (
               <>
                 <span className={styles.welcomeMessage}>
-                  Bonjour,  {user.username || "Utilisateur"}!
+                  Bonjour,  { user.username || "Utilisateur"} !
                 </span>
                 <Link
                   href="/"
