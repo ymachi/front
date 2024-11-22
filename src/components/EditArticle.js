@@ -48,7 +48,7 @@ const EditArticle = () => {
 
         try {
             await axios.put(
-                `http://localhost:3002/api/articles/${id}`,
+                `http://localhost:3002/api/articles/edit/${id}`,
                 { title, content, imageUrl },
                 { headers: token() }
             );
