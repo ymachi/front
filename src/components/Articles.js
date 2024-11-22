@@ -5,11 +5,11 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { token } from "../../context/token";
 import { useAuth } from "../../context/AuthContext";
-import toast from 'react-hot-toast';  
+import toast from 'react-hot-toast';
 
 const Articles = () => {
   const { push, query } = useRouter();
-  const { user, loading } = useAuth(); // Utilisation du contexte avec loading
+  const { user, loading } = useAuth(); 
   const [articles, setArticles] = useState([]);
   const [isDeleted, setIsDeleted] = useState(false);
 
@@ -40,9 +40,9 @@ const Articles = () => {
     }
   };
 
-  // Si l'utilisateur est en train de charger les données
+  // si l'utilisateur est en train de charger les données
   if (loading) {
-    return <p>Chargement...</p>; // Affiche un message de chargement
+    return <p>Chargement...</p>;
   }
 
   return (
@@ -60,9 +60,7 @@ const Articles = () => {
           </article>
 
           {user && (
-            
-              <Link className={styles.editButton} href='/addarticle'>Ajouter un post</Link>
-           
+            <Link className={styles.editButton} href='/addarticle'>Ajouter un post</Link>
           )}
 
           <section className={styles.cardsArticles}>
@@ -75,11 +73,8 @@ const Articles = () => {
                     <figcaption>{article.content}</figcaption>
                     <p> Par <strong>{article.creator.username}</strong></p>
                   </figure>
-                  {/* <ul>
-                    <li>{article.creator.username}</li>
-                  </ul> */}
                   
-                  {user && (
+                  {user && user._id === article.creator._id && ( // vérifie si l'utilisateur est le créateur
                     <div className={styles.cardActions}>
                       <button
                         className={styles.editButton}
